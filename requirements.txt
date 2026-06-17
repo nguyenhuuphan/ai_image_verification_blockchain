@@ -1,0 +1,5 @@
+flask
+web3
+pillow
+opencv-python
+numpy

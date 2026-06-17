@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Image Verification using Blockchain Watermarking</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .card { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
+        input, button { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>AI Image Verification using Blockchain Watermarking</h1>
+    <div class="card">
+        <h2>Register Image</h2>
+        <form action="/register" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" required><br>
+            <input type="text" name="watermark_id" value="WMK-2026-001"><br>
+            <button type="submit">Register Image</button>
+        </form>
+    </div>
+    <div class="card">
+        <h2>Verify Image</h2>
+        <form action="/verify" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" required><br>
+            <button type="submit">Verify Image</button>
+        </form>
+    </div>
+</body>
+</html>
