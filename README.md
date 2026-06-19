@@ -84,6 +84,17 @@ Open:
 http://127.0.0.1:5000
 ```
 
+## Verify the implementation
+
+With Ganache running, execute:
+
+```powershell
+python verify_implementation.py
+```
+
+This deploys a temporary contract and reproduces the watermark checks and
+research test cases TC01-TC09. Temporary images are removed automatically.
+
 ## Main files
 
 ```text
@@ -94,6 +105,7 @@ backend/blockchain_service.py          Ganache and smart-contract connection
 backend/ai_agent.py                    Verification decision rules
 smart_contract/ImageVerification.sol   Solidity smart contract
 deploy_contract.py                     Contract deployment script
+verify_implementation.py               TC01-TC09 verification script
 frontend/                              Web pages and CSS
 screenshots/report/                    Report screenshots
 ```
