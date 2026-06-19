@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+
+# Secrets and local configuration
+backend/.env
+.env
+
+# Generated runtime files
+backend/uploads/*
+!backend/uploads/.gitkeep
+deployed_contract_address.txt
+
+# Node dependencies
+node_modules/

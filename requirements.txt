@@ -1,5 +1,5 @@
 flask
 web3
 pillow
-opencv-python
-numpy
+py-solc-x
+python-dotenv

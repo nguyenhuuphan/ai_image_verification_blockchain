@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blockchain System Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+    <main class="page-shell narrow">
+        <header class="page-header">
+            <a class="nav-link" href="/">← Back to dashboard</a>
+            <span class="eyebrow">Ganache Status</span>
+            <h1>Local blockchain system status</h1>
+            <p>This page shows the blockchain connection without displaying private keys.</p>
+        </header>
+        <section class="result-card {{ 'status-authentic' if health.ok else 'status-verification-failed' }}">
+            <div class="status-head">
+                <div class="status-badge">{{ 'Connected' if health.ok else 'Offline' }}</div>
+                <h2>{{ 'Ganache and the deployed contract are reachable.' if health.ok else health.error }}</h2>
+            </div>
+            <div class="details-grid">
+                <div class="detail full"><span>RPC provider</span><code>{{ health.provider_url }}</code></div>
+                {% if health.contract_address %}
+                    <div class="detail full"><span>Contract address</span><code>{{ health.contract_address }}</code></div>
+                {% endif %}
+                {% if health.ok %}
+                    <div class="detail"><span>Chain ID</span><code>{{ health.chain_id }}</code></div>
+                    <div class="detail"><span>Latest block</span><code>{{ health.block_number }}</code></div>
+                    <div class="detail full"><span>Registration account</span><code>{{ health.account }}</code></div>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>

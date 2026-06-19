@@ -1,0 +1,10 @@
+{
+  "name": "ai-image-verification-blockchain",
+  "private": true,
+  "scripts": {
+    "ganache": "ganache --server.port 7545 --chain.chainId 1337 --wallet.totalAccounts 10"
+  },
+  "devDependencies": {
+    "ganache": "^7.9.2"
+  }
+}

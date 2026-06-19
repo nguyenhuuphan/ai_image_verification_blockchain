@@ -1,1 +1,47 @@
-<!-- Optional page placeholder. Current prototype uses index.html forms. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+    <main class="page-shell narrow">
+        <header class="page-header">
+            <a class="nav-link" href="/">← Back to dashboard</a>
+            <span class="eyebrow">Step 2 · Verification</span>
+            <h1>Check image registration and integrity.</h1>
+            <p>
+                The system preserves the uploaded bytes, extracts any valid
+                watermark, calculates SHA-256, and queries the smart contract.
+            </p>
+        </header>
+
+        <section class="form-card">
+            <form action="/verify" method="post" enctype="multipart/form-data">
+                <div class="field-group">
+                    <label for="image-input">Image to verify</label>
+                    <input
+                        id="image-input"
+                        type="file"
+                        name="image"
+                        accept=".png,.jpg,.jpeg,image/png,image/jpeg"
+                        required
+                    />
+                    <small>PNG, JPG, or JPEG up to 16 MB.</small>
+                </div>
+
+                <div class="preview-panel">
+                    <span>Selected image preview</span>
+                    <img id="image-preview" class="image-preview" alt="Selected image preview" />
+                    <p id="file-name" class="file-name">No file selected</p>
+                </div>
+
+                <button class="button primary" type="submit">Verify image</button>
+            </form>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='preview.js') }}"></script>
+</body>
+</html>

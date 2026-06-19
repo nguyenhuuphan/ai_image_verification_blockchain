@@ -1,1 +1,47 @@
-<!-- Optional page placeholder. Current prototype uses index.html forms. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+    <main class="page-shell narrow">
+        <header class="page-header">
+            <a class="nav-link" href="/">← Back to dashboard</a>
+            <span class="eyebrow">Step 1 · Registration</span>
+            <h1>Create an official verifiable image.</h1>
+            <p>
+                Upload PNG, JPG, or JPEG. The server generates the watermark ID,
+                creates a watermarked PNG, hashes it, and registers the metadata.
+            </p>
+        </header>
+
+        <section class="form-card">
+            <form action="/register" method="post" enctype="multipart/form-data">
+                <div class="field-group">
+                    <label for="image-input">Original image</label>
+                    <input
+                        id="image-input"
+                        type="file"
+                        name="image"
+                        accept=".png,.jpg,.jpeg,image/png,image/jpeg"
+                        required
+                    />
+                    <small>Maximum 16 MB. The output is always a lossless PNG.</small>
+                </div>
+
+                <div class="preview-panel">
+                    <span>Selected image preview</span>
+                    <img id="image-preview" class="image-preview" alt="Selected image preview" />
+                    <p id="file-name" class="file-name">No file selected</p>
+                </div>
+
+                <button class="button primary" type="submit">Embed watermark and register</button>
+            </form>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='preview.js') }}"></script>
+</body>
+</html>
